@@ -78,10 +78,10 @@ class TestRunContext {
             "response_type": "in_channel",
             "attachments": [
                 {
-                    "fallback": "Newman Run Summary",
+                    "fallback": "VistarMedia Report Run Summary",
                     "color": `${this.colour}`,
                     "title": "Summary Test Result",
-                    "title_link": "https://adserver-demo.herokuapp.com/htmlResults.html",
+                    "title_link": "https://vistarmedia-report.herokuapp.com/htmlResults.html",
                     "text": `Environment File: *${this.envFileName}*\nTotal Run Duration: *${this.runDuration}*`,
                     "mrkdwn": true,
                     "fields": [
@@ -134,13 +134,14 @@ class TestRunContext {
 let executeNewman = (environmentFile, iterationCount) => {
     return new Promise((resolve, reject) => {
         newman.run({
-            collection: './collections/Restful_Booker_Collection.json',
+            collection: './collections/vistarmedia.postman_collection.json',
             environment: environmentFile,
             iterationCount: iterationCount,
             reporters: ['htmlextra'],
             reporter: {
                 htmlextra: {
-                    export: './reports/htmlResults.html'
+                    export: './reports/htmlResults.html',
+                    template: './reports/templates/dashboard-template.hbs'
                 }
             }
         }, (err, summary) => {
@@ -185,7 +186,7 @@ app.post("/newmanRun", (req, res) => {
     const enteredEnv     = (channelText).split(" ")[0]
     const iterationCount = parseInt((channelText).split(" ")[1])
     
-    const filename = `./environments/${enteredEnv}_Restful_Booker_Environment.json`
+    const filename = `./environments/${enteredEnv}_vistarmedia.postman_Environment.json`
     
     const fileNameCheck = fs.existsSync(filename)
 
@@ -214,7 +215,7 @@ app.post("/newmanRun", (req, res) => {
             "attachments": [
                 {
                     "color": "good",
-                    "title": "Newman Test Run Started",
+                    "title": "VistarMedia Report Test Run Started",
                     "mrkdwn": true,
                     "fields": [
                         {

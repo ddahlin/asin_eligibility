@@ -172,7 +172,7 @@
 					},
 					{
 						"key": "Cookie",
-						"value": "tr-development=eyJfcGVybWFuZW50Ijp0cnVlLCJ1c2VyLmlkIjoiLVlENkFMc2RUOWFQQmN3Vnh5OW1KUSIsInVzZXIuaXNfYWRtaW4iOmZhbHNlfQ.EQzsWg.vkToDWT3FoiQtA0xmUU6iqhMaLQ; Domain=.vistarmedia.com; Expires=Sat, 25-Jan-2020 05:00:10 GMT; Secure; HttpOnly; Path=/",
+						"value": "tr-development=eyJfcGVybWFuZW50Ijp0cnVlLCJ1c2VyLmlkIjoiLVlENkFMc2RUOWFQQmN3Vnh5OW1KUSIsInVzZXIuaXNfYWRtaW4iOmZhbHNlfQ.ERNI6g.j97jJ8hu5YX7cGCT7dlBkVf-05c; Domain=.vistarmedia.com; Expires=Thu, 30-Jan-2020 00:48:42 GMT; Secure; HttpOnly; Path=/",
 						"type": "text"
 					}
 				],
@@ -197,17 +197,13 @@
 			"response": []
 		},
 		{
-			"name": "DANIEL5_REPORT",
+			"name": "ONE_DAY_REPORT",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"id": "3588b91d-e172-4a27-a265-e5b25b823a91",
 						"exec": [
-							"////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
-							"////////////////////////////////////////////////////////////////////HECH STATUS 200/////////////////////////////////////////////////////////////////",
-							"////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
-							"",
 							"pm.test(\"Status code is 200\", function() {",
 							"    pm.response.to.have.status(200);",
 							"});",
