@@ -134,7 +134,7 @@ class TestRunContext {
 let executeNewman = (environmentFile, iterationCount) => {
     return new Promise((resolve, reject) => {
         newman.run({
-            collection: './collections/AES_postman_collection.json',
+            collection: './collections/Restful_Booker_Collection.json',
             environment: environmentFile,
             iterationCount: iterationCount,
             reporters: ['htmlextra'],
