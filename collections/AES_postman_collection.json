@@ -1,0 +1,958 @@
+{
+	"info": {
+		"_postman_id": "98244c5e-c188-4f98-aa70-fcee562c0a9b",
+		"name": "AES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "US",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6045cf1a-83fa-428c-bf78-8e1cd88ade90",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B00MCW8MGI\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B00MCW8MGI\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B07BWBQ66J\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B07BWBQ66J\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE_WITH_WARNING\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B07F6FSDHS\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B07F6FSDHS\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE_WITH_WARNING\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"A32534H5CIUH5E\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"ATVPDKIKX0DER\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B00MCW8MGI\"\n},\n{\n\"asin\": \"B07BWBQ66J\"\n},\n{\n\"asin\": \"B07F6FSDHS\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "803f697b-5bbf-4f34-9913-eab64ebfccf9",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B00IBFYT3A\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B00IBFYT3A\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE_WITH_WARNING\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B000HHHEF0\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B000HHHEF0\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE_WITH_WARNING\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B07VJHR9JC\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B07VJHR9JC\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE_WITH_WARNING\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"A1BTK3YK8NIEDG\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"A2EUQ1WTGCTBG2\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B00IBFYT3A\"\n},\n{\n\"asin\": \"B000HHHEF0\"\n},\n{\n\"asin\": \"B07VJHR9JC\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MX",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "01d64d89-451c-4f6e-8ede-f9edc7c39eb6",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN 1616283793\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"1616283793\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE_WITH_WARNING\");",
+							"});",
+							"",
+							"pm.test(\"ASIN 0143110438\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"0143110438\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE_WITH_WARNING\");",
+							"});",
+							"",
+							"pm.test(\"ASIN 123456789X\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"123456789X\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE_WITH_WARNING\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"AB5GZ5BQM3POL\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"A3P3J5A7D2ZVXI\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"1616283793\"\n},\n{\n\"asin\": \"0143110438\"\n},\n{\n\"asin\": \"123456789X\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JP",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7eaeeab6-4225-4381-bbcd-9887e9f49d7d",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B00L6VYK1M\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B00L6VYK1M\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B00OM81S7A\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B00OM81S7A\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B07XRFJ9NP\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B07XRFJ9NP\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"AJCH6H8F6OYW5\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"A1VC38T7YXB528\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B00L6VYK1M\"\n},\n{\n\"asin\": \"B00OM81S7A\"\n},\n{\n\"asin\": \"B07XRFJ9NP\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AU",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "488daabe-7a67-407f-b4d1-a2c3daa7821e",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B00GJ1G2K6\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B00GJ1G2K6\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B07WKLQ2XD\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B07WKLQ2XD\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B084KJDX6Y\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B084KJDX6Y\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"ANXB6PQU68AHY\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"A1RNPCQ4K8U27I\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B00GJ1G2K6\"\n},\n{\n\"asin\": \"B07WKLQ2XD\"\n},\n{\n\"asin\": \"B084KJDX6Y\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f1ea6a11-139b-41ee-9083-2e379970d470",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B017GZPXC6\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B017GZPXC6\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B07QDZHHHT\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B07QDZHHHT\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B00OO6RL4E\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B00OO6RL4E\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"A1UI096PNEPLNG\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"A1MQPSGJ6U9Q54\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B017GZPXC6\"\n},\n{\n\"asin\": \"B07QDZHHHT\"\n},\n{\n\"asin\": \"B00OO6RL4E\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1170e2d5-cae6-41b4-8ffc-aa0cd203a1a3",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B07QKX92YG\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B07QKX92YG\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B07Y1C6GDS\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B07Y1C6GDS\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B08125XH19\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B08125XH19\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"A1MXAZENKJWEJE\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"A34GYYCZVDBSIK\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B07QKX92YG\"\n},\n{\n\"asin\": \"B07Y1C6GDS\"\n},\n{\n\"asin\": \"B08125XH19\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UK",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1edc38fd-d41d-4bf2-8a41-7e94a681f9ea",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B07KKMSK7X\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B07KKMSK7X\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B001CMB2KC\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B001CMB2KC\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B0731FJFV1\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B0731FJFV1\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"A22KJISE5UE500\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"A1F83G8C2ARO7P\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B07KKMSK7X\"\n},\n{\n\"asin\": \"B001CMB2KC\"\n},\n{\n\"asin\": \"B0731FJFV1\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FR",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8fb95a4-827d-4d43-a164-956aa92429bd",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B0088ZCDAO\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B0088ZCDAO\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B00JGF6LPS\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B00JGF6LPS\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B07D3C8J82\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B07D3C8J82\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"A3KV389Y7OPHDF\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"A13V1IB3VIYZZH\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B0088ZCDAO\"\n},\n{\n\"asin\": \"B00JGF6LPS\"\n},\n{\n\"asin\": \"B07D3C8J82\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d36da1d7-8fd9-4784-9dbd-309502004b22",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B01M0WZ4SS\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B01M0WZ4SS\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B00GYHQ05C\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B00GYHQ05C\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B000R9P3PQ\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B000R9P3PQ\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"A2CFGVNV7TFY2T\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"A3HOBANJMCMD83\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B01M0WZ4SS\"\n},\n{\n\"asin\": \"B00GYHQ05C\"\n},\n{\n\"asin\": \"B000R9P3PQ\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "538be0ff-afc8-4d05-bbff-b254e931dfc0",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B018F3W79K\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B018F3W79K\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B01HRLCQTC\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B01HRLCQTC\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B01MZDYD6B\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B01MZDYD6B\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"A3U20084J03624\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"AJZF8LZ1EJVJN\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B018F3W79K\"\n},\n{\n\"asin\": \"B01HRLCQTC\"\n},\n{\n\"asin\": \"B01MZDYD6B\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cbe42895-4ffb-4044-9ca3-df15f96dc6d2",
+						"exec": [
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"ASIN B010XG9TCU\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].productDetails.asin).to.eql(\"B010XG9TCU\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[0].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B005M8YXEE\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].productDetails.asin).to.eql(\"B005M8YXEE\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[1].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							"pm.test(\"ASIN B01EKVL2XS\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].productDetails.asin).to.eql(\"B01EKVL2XS\");",
+							"});",
+							"pm.test(\"Eligibility Status\", function () {",
+							"pm.expect(jsonData.Output.productResponseList[2].overallStatus).to.eql(\"ELIGIBLE\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"Operation\": \"com.amazon.adseligibilityservice#OfferEligibilitySP\",\n\"Service\": \"com.amazon.adseligibilityservice#AdsEligibilityService\",\n\"Input\": {\n\"publicApiRequestId\": \"null\",\n\"profileDetails\": {\n\"advertiserId\": \"A1Y3CWJE2TLZPD\",\n\"entityType\": \"VENDOR\",\n\"entityId\": \"\",\n\"customerId\": \"\",\n\"clientId\": \"LOADTEST_CLIENT\",\n\"marketplaceId\": \"A1PA6795UKMFR9\",\n\"vendorCode\": \"\",\n\"scopes\": \"SP\",\n\"internal\": true\n},\n\"locale\": \"en_us\",\n\"adType\": \"SP\",\n\"productDetailsList\": [ {\n\"asin\": \"B010XG9TCU\"\n},\n{\n\"asin\": \"B005M8YXEE\"\n},\n{\n\"asin\": \"B01EKVL2XS\"\n}\n],\n\"bypassAuth\": true,\n\"authorizer\": \"\"\n}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://aes-bhc-pdx-d.integ.amazon.com:80",
+					"protocol": "http",
+					"host": [
+						"aes-bhc-pdx-d",
+						"integ",
+						"amazon",
+						"com"
+					],
+					"port": "80"
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
