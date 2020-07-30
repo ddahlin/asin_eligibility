@@ -1,0 +1,402 @@
+{
+	"info": {
+		"_postman_id": "9df53eba-5953-4ec2-b2be-198a2c6b2f79",
+		"name": "DSP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "REG-3202",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9ed513a4-cc01-4e1f-9ca2-eb2662d3bf83",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"",
+							"});",
+							"",
+							"var s3qaurl = pm.environment.get(\"S3QA\");",
+							"",
+							"pm.test(\"Custom Pixel creative click\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_click\", \"g\")) || []).length).to.equal(2);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative impression HTML\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_impression\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative impression JS\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa1.js\\\\?param1=creative_impression\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel impression HTML\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=impression\", \"g\")) || []).length).to.equal(2);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel impression JS\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa1.js\\\\?param1=impression\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel viewable completion\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=viewable_completion\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative viewable completion\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_viewable_completion\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"pm.test(\"Custom Pixel screen first quartile\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=screen_first_quartile\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative first quartile\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_first_quartile\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Custom Pixel creative second quartile\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_second_quartile\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel screen third quartile\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=screen_third_quartile\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative third quartile\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_third_quartile\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel screen completion\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=screen_completion\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative_completion\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_completion\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel completion\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=completion\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"ClickThrough URL\", function() {",
+							"    pm.expect(count = (pm.response.text().match(/https:\\/\\/tremorvideodsp.com\\/tech.html/g) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"NielsenOCR\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(\"secure-gl.imrworldwide.com/cgi-bin/\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://adserver.iad1.videohub.tv/preview?RI=0eD0x-MBUWxGi9L3SWt8Bw&screenType=desktop&rml=true&Uctry=__country__&Ust=__state__&Udma=__dma__&Uzip=__postalCode__&Ucty=__city__&Uctnt=__continent__&Ulong=__longitude__&Ulat=__latitude__&Uacd=__areaCode__&position_ACP=__adChoicesPosition__&usedACP=__usedACP__&dspACP=__adChoicesProviders__&sig=835E9ACC20975DE718282E46B2917BD1&CI=9m289ntCK1yx0TY1sysXUg&filterScreenTypes=desktop,mobilephone,mobiletablet,ctv&advertiserName=QA_DO_NOT_ALTER\"&dmps=y&SUI=21906",
+					"protocol": "http",
+					"host": [
+						"adserver",
+						"iad1",
+						"videohub",
+						"tv"
+					],
+					"path": [
+						"preview"
+					],
+					"query": [
+						{
+							"key": "RI",
+							"value": "0eD0x-MBUWxGi9L3SWt8Bw"
+						},
+						{
+							"key": "screenType",
+							"value": "desktop"
+						},
+						{
+							"key": "rml",
+							"value": "true"
+						},
+						{
+							"key": "Uctry",
+							"value": "__country__"
+						},
+						{
+							"key": "Ust",
+							"value": "__state__"
+						},
+						{
+							"key": "Udma",
+							"value": "__dma__"
+						},
+						{
+							"key": "Uzip",
+							"value": "__postalCode__"
+						},
+						{
+							"key": "Ucty",
+							"value": "__city__"
+						},
+						{
+							"key": "Uctnt",
+							"value": "__continent__"
+						},
+						{
+							"key": "Ulong",
+							"value": "__longitude__"
+						},
+						{
+							"key": "Ulat",
+							"value": "__latitude__"
+						},
+						{
+							"key": "Uacd",
+							"value": "__areaCode__"
+						},
+						{
+							"key": "position_ACP",
+							"value": "__adChoicesPosition__"
+						},
+						{
+							"key": "usedACP",
+							"value": "__usedACP__"
+						},
+						{
+							"key": "dspACP",
+							"value": "__adChoicesProviders__"
+						},
+						{
+							"key": "sig",
+							"value": "835E9ACC20975DE718282E46B2917BD1"
+						},
+						{
+							"key": "CI",
+							"value": "9m289ntCK1yx0TY1sysXUg"
+						},
+						{
+							"key": "filterScreenTypes",
+							"value": "desktop,mobilephone,mobiletablet,ctv"
+						},
+						{
+							"key": "advertiserName",
+							"value": "QA_DO_NOT_ALTER\""
+						},
+						{
+							"key": "dmps",
+							"value": "y"
+						},
+						{
+							"key": "SUI",
+							"value": "21906"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REG-3203",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2637e26c-deb1-48a2-a541-1f172881b9e2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 200ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"",
+							"});",
+							"",
+							"var s3qaurl = pm.environment.get(\"S3QA\");",
+							"",
+							"pm.test(\"Custom Pixel creative click\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_click\", \"g\")) || []).length).to.equal(2);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative impression HTML\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_impression\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative impression JS\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa1.js\\\\?param1=creative_impression\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel impression HTML\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=impression\", \"g\")) || []).length).to.equal(2);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel impression JS\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa1.js\\\\?param1=impression\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel viewable completion\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=viewable_completion\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative viewable completion\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_viewable_completion\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"pm.test(\"Custom Pixel screen first quartile\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=screen_first_quartile\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative first quartile\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_first_quartile\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Custom Pixel creative second quartile\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_second_quartile\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel screen third quartile\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=screen_third_quartile\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative third quartile\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_third_quartile\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel screen completion\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=screen_completion\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel creative_completion\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=creative_completion\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"Custom Pixel completion\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(s3qaurl + \"qa.gif\\\\?param1=completion\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"ClickThrough URL\", function() {",
+							"    pm.expect(count = (pm.response.text().match(/https:\\/\\/tremorvideodsp.com\\/tech.html/g) || []).length).to.equal(1);",
+							"});",
+							"",
+							"pm.test(\"NielsenOCR\", function() {",
+							"    pm.expect((pm.response.text().match(new RegExp(\"secure-gl.imrworldwide.com/cgi-bin/\", \"g\")) || []).length).to.equal(1);",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://adserver.iad1.videohub.tv/preview?RI=0qVDB4RQ6XxaPtPJ6LvNPw&screenType=desktop&rml=true&Uctry=__country__&Ust=__state__&Udma=__dma__&Uzip=__postalCode__&Ucty=__city__&Uctnt=__continent__&Ulong=__longitude__&Ulat=__latitude__&Uacd=__areaCode__&position_ACP=__adChoicesPosition__&usedACP=__usedACP__&dspACP=__adChoicesProviders__&sig=EB3C0E79452040BDF67C3F14F44A81FE&CI=EQRLslwxeX0ah-b4ofuB8A&dmps=y&SUI=21906",
+					"protocol": "http",
+					"host": [
+						"adserver",
+						"iad1",
+						"videohub",
+						"tv"
+					],
+					"path": [
+						"preview"
+					],
+					"query": [
+						{
+							"key": "RI",
+							"value": "0qVDB4RQ6XxaPtPJ6LvNPw"
+						},
+						{
+							"key": "screenType",
+							"value": "desktop"
+						},
+						{
+							"key": "rml",
+							"value": "true"
+						},
+						{
+							"key": "Uctry",
+							"value": "__country__"
+						},
+						{
+							"key": "Ust",
+							"value": "__state__"
+						},
+						{
+							"key": "Udma",
+							"value": "__dma__"
+						},
+						{
+							"key": "Uzip",
+							"value": "__postalCode__"
+						},
+						{
+							"key": "Ucty",
+							"value": "__city__"
+						},
+						{
+							"key": "Uctnt",
+							"value": "__continent__"
+						},
+						{
+							"key": "Ulong",
+							"value": "__longitude__"
+						},
+						{
+							"key": "Ulat",
+							"value": "__latitude__"
+						},
+						{
+							"key": "Uacd",
+							"value": "__areaCode__"
+						},
+						{
+							"key": "position_ACP",
+							"value": "__adChoicesPosition__"
+						},
+						{
+							"key": "usedACP",
+							"value": "__usedACP__"
+						},
+						{
+							"key": "dspACP",
+							"value": "__adChoicesProviders__"
+						},
+						{
+							"key": "sig",
+							"value": "EB3C0E79452040BDF67C3F14F44A81FE"
+						},
+						{
+							"key": "CI",
+							"value": "EQRLslwxeX0ah-b4ofuB8A"
+						},
+						{
+							"key": "dmps",
+							"value": "y"
+						},
+						{
+							"key": "SUI",
+							"value": "21906"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
